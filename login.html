@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>เข้าสู่ระบบ - วอดวายเวชกรรม</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts (Prompt) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
+    <style>
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            color: #21433e;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 70px;
+            height: auto;
+        }
+
+        .auth-wrap {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 1100px;
+            min-height: 680px;
+            height: 680px;
+            display: flex;
+        }
+
+        .auth-side {
+            width: 45%;
+        }
+
+        .auth-form {
+            width: 55%;
+        }
+
+    </style>
+
+</head>
+
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+
+    <!-- Card Container -->
+
+    <div
+        class="bg-white rounded-2xl shadow-xl flex flex-col md:flex-row
+               max-w-[850px] w-full overflow-hidden
+               border border-gray-100 min-h-[520px]"
+    >
+
+
+        <!-- ======================================
+             ฝั่งซ้าย : ฟอร์มเข้าสู่ระบบ
+        ======================================= -->
+
+        <div
+            class="w-full md:w-1/2 p-8 md:p-10
+                   flex flex-col justify-center"
+        >
+
+
+            <!-- โลโก้ และ ชื่อองค์กร -->
+
+            <div class="flex items-center gap-3 mb-6">
+
+                <!-- โลโก้โรงพยาบาล -->
+
+                <div class="logo">
+
+                    <img
+                        src="logo.png"
+                        alt="โลโก้โรงพยาบาล"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <h1
+                        class="text-2xl font-bold
+                               text-[#1a3f37]
+                               leading-tight tracking-tight"
+                    >
+                        วอดวายเวชกรรม
+                    </h1>
+
+                    <p
+                        class="text-[9px] tracking-widest
+                               text-[#1a3f37]
+                               font-semibold uppercase"
+                    >
+                        WODWAI WETCHAKAM
+                    </p>
+
+                    <p
+                        class="text-[7px] tracking-widest
+                               text-[#1a3f37]
+                               font-medium -mt-0.5 uppercase"
+                    >
+                        MEDICAL CENTER
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- หัวข้อ -->
+
+            <h2
+                class="text-2xl font-bold
+                       text-[#1a3f37] mb-0.5"
+            >
+                เข้าสู่ระบบ
+            </h2>
+
+            <p
+                class="text-xs text-gray-500 mb-5"
+            >
+                กรุณาเข้าสู่ระบบเพื่อใช้งานระบบ
+            </p>
+
+
+            <!-- ======================================
+                 ฟอร์ม
+            ======================================= -->
+
+            <form
+                id="loginForm"
+                class="space-y-3.5"
+            >
+
+
+                <!-- ช่องกรอก Email -->
+
+                <div>
+
+                    <label
+                        class="block text-xs font-bold
+                               text-[#1a3f37] mb-1"
+                    >
+                        อีเมล / เบอร์โทรศัพท์
+                    </label>
+
+                    <input
+                        id="email"
+                        type="text"
+                        required
+                        placeholder="กรอกอีเมลหรือเบอร์โทรศัพท์"
+                        class="w-full px-3.5 py-2 text-xs
+                            border border-[#cfdfdb]
+                            rounded-lg
+                            focus:outline-none
+                            focus:ring-1
+                            focus:ring-[#3ca085]
+                            placeholder-gray-300"
+                    >
+
+                </div>
+
+
+                <!-- ช่องกรอก รหัสผ่าน -->
+
+                <div>
+
+                    <label
+                        class="block text-xs font-bold
+                               text-[#1a3f37] mb-1"
+                    >
+                        รหัสผ่าน
+                    </label>
+
+
+                    <div class="relative">
+
+                        <input
+                            id="password"
+                            type="password"
+                            required
+                            placeholder="กรอกรหัสผ่าน"
+                            class="w-full px-3.5 py-2 text-xs
+                                   border border-[#cfdfdb]
+                                   rounded-lg
+                                   focus:outline-none
+                                   focus:ring-1
+                                   focus:ring-[#3ca085]
+                                   placeholder-gray-300
+                                   pr-9"
+                        >
+
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="absolute inset-y-0 right-0
+                                   pr-3 flex items-center
+                                   text-gray-700
+                                   hover:text-gray-900"
+                        >
+
+                            <i
+                                id="eyeIcon"
+                                class="fa-regular fa-eye text-xs"
+                            ></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ======================================
+                     ปุ่มเข้าสู่ระบบ
+                ======================================= -->
+
+                <button
+                    id="loginButton"
+                    type="submit"
+                    class="w-full mt-2
+                           bg-[#3ca085]
+                           hover:bg-[#328770]
+                           text-white
+                           py-2.5
+                           rounded-lg
+                           text-sm
+                           font-medium
+                           transition
+                           duration-200"
+                >
+
+                    <span id="buttonText">
+                        เข้าสู่ระบบ
+                    </span>
+
+                    <i
+                        id="loadingIcon"
+                        class="fa-solid fa-spinner fa-spin
+                               hidden ml-2"
+                    ></i>
+
+                </button>
+
+
+            </form>
+
+
+            <!-- ======================================
+                 เส้นแบ่ง "หรือ"
+            ======================================= -->
+
+            <div class="relative my-4">
+
+                <div
+                    class="absolute inset-0
+                           flex items-center"
+                >
+
+                    <div
+                        class="w-full
+                               border-t border-gray-200"
+                    ></div>
+
+                </div>
+
+
+                <div
+                    class="relative flex
+                           justify-center text-xs"
+                >
+
+                    <span
+                        class="bg-white px-3
+                               text-gray-400"
+                    >
+                        หรือ
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ======================================
+                 ปุ่มสมัครสมาชิก
+            ======================================= -->
+
+            <a
+                href="register.html"
+                class="w-full
+                       border border-[#3ca085]
+                       text-[#3ca085]
+                       hover:bg-emerald-50
+                       text-center
+                       py-2
+                       rounded-lg
+                       text-sm
+                       font-medium
+                       transition
+                       duration-200
+                       block"
+            >
+                สมัครสมาชิก
+            </a>
+
+
+        </div>
+
+
+        <!-- ======================================
+             ฝั่งขวา : Banner ภาพและข้อความ
+        ======================================= -->
+
+        <div
+            class="w-full md:w-1/2
+                   bg-[#eaf8f5]
+                   flex items-center
+                   justify-center
+                   relative overflow-hidden"
+        >
+
+            <img
+                src="docterinlogin.jpg"
+                alt="หมอ"
+                class="w-full h-full object-cover"
+            >
+
+
+            <div
+                class="absolute top-12 left-0 right-0
+                       text-center z-10"
+            >
+
+                <h2
+                    class="text-[#174d5a]
+                           text-2xl
+                           font-extrabold
+                           leading-[1.5]
+                           [-webkit-text-stroke:6px_white]
+                           [paint-order:stroke_fill]"
+                >
+
+                    สุขภาพที่ดีเริ่มต้นจากการดูแล<br>
+
+                    อย่างใส่ใจ
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- Font Awesome -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
+    ></script>
+
+
+    <!-- ======================================
+         JavaScript
+    ======================================= -->
+
+    <script>
+
+
+        // ======================================
+        // แสดง / ซ่อน Password
+        // ======================================
+
+        const password =
+            document.getElementById("password");
+
+        const togglePassword =
+            document.getElementById("togglePassword");
+
+        const eyeIcon =
+            document.getElementById("eyeIcon");
+
+
+        togglePassword.addEventListener(
+            "click",
+            () => {
+
+                if (password.type === "password") {
+
+                    password.type = "text";
+
+                    eyeIcon.classList.remove(
+                        "fa-eye"
+                    );
+
+                    eyeIcon.classList.add(
+                        "fa-eye-slash"
+                    );
+
+                } else {
+
+                    password.type = "password";
+
+                    eyeIcon.classList.remove(
+                        "fa-eye-slash"
+                    );
+
+                    eyeIcon.classList.add(
+                        "fa-eye"
+                    );
+
+                }
+
+            }
+        );
+
+
+        // ======================================
+        // Login
+        // ======================================
+
+        document
+            .getElementById("loginForm")
+            .addEventListener(
+                "submit",
+                async function (event) {
+
+                    event.preventDefault();
+
+
+                    const email =
+                        document
+                            .getElementById("email")
+                            .value
+                            .trim();
+
+
+                    const passwordValue =
+                        document
+                            .getElementById("password")
+                            .value;
+
+
+                    // ตรวจข้อมูล
+
+                    if (!email || !passwordValue) {
+
+                        alert(
+                            "กรุณากรอกอีเมลและรหัสผ่าน"
+                        );
+
+                        return;
+
+                    }
+
+
+                    // ======================================
+                    // ปุ่มกำลังโหลด
+                    // ======================================
+
+                    const loginButton =
+                        document.getElementById(
+                            "loginButton"
+                        );
+
+                    const buttonText =
+                        document.getElementById(
+                            "buttonText"
+                        );
+
+                    const loadingIcon =
+                        document.getElementById(
+                            "loadingIcon"
+                        );
+
+
+                    loginButton.disabled = true;
+
+
+                    loginButton.classList.add(
+                        "opacity-70",
+                        "cursor-not-allowed"
+                    );
+
+
+                    buttonText.textContent =
+                        "กำลังเข้าสู่ระบบ...";
+
+
+                    loadingIcon.classList.remove(
+                        "hidden"
+                    );
+
+
+                    try {
+
+
+                        // ======================================
+                        // ส่งข้อมูลไป Backend
+                        // ======================================
+
+                        const response =
+                            await fetch("https://wodwai-hospital-backend.onrender.com/api/register", {
+                                    method: "POST",
+
+                                    headers: {
+                                        "Content-Type":
+                                            "application/json"
+                                    },
+
+                                    body: JSON.stringify({
+
+                                        email: email,
+
+                                        password:
+                                            passwordValue
+
+                                    })
+
+                                }
+                            );
+
+
+                        const data =
+                            await response.json();
+
+
+                        // ======================================
+                        // Login ไม่สำเร็จ
+                        // ======================================
+
+                        if (!response.ok) {
+
+                            alert(
+                                data.message ||
+                                "เข้าสู่ระบบไม่สำเร็จ"
+                            );
+
+                            return;
+
+                        }
+
+
+                        // ======================================
+                        // Login สำเร็จ
+                        // ======================================
+
+                        localStorage.setItem(
+                            "user",
+                            JSON.stringify(
+                                data.user
+                            )
+                        );
+
+
+                        alert(
+                            "เข้าสู่ระบบสำเร็จ\n\n" +
+                            "ยินดีต้อนรับ " +
+                            data.user.name
+                        );
+
+
+                        // ไปหน้าแรก
+
+                        window.location.href =
+                            "index.html";
+
+
+                    } catch (error) {
+
+
+                        console.error(
+                            "Login Error:",
+                            error
+                        );
+
+
+                        alert(
+                            "ไม่สามารถเชื่อมต่อกับ Server ได้\n\n" +
+                            "กรุณาตรวจสอบว่า Backend กำลังทำงานอยู่"
+                        );
+
+
+                    } finally {
+
+
+                        // ======================================
+                        // คืนค่าปุ่ม
+                        // ======================================
+
+                        loginButton.disabled =
+                            false;
+
+
+                        loginButton.classList.remove(
+                            "opacity-70",
+                            "cursor-not-allowed"
+                        );
+
+
+                        buttonText.textContent =
+                            "เข้าสู่ระบบ";
+
+
+                        loadingIcon.classList.add(
+                            "hidden"
+                        );
+
+                    }
+
+                }
+            );
+
+    </script>
+
+
+</body>
+
+</html>

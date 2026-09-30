@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>วอดวายเวชกรรม | หน้าแรก</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        .hero-pattern {
+            background:
+                radial-gradient(circle at 85% 20%, rgba(255,255,255,.25), transparent 25%),
+                linear-gradient(135deg, #dff6f1, #eaf8f5 45%, #d8f0ec);
+        }
+
+        .service-card {
+            transition: all .2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(44, 137, 116, .12);
+        }
+
+        .doctor-card {
+            transition: all .2s ease;
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-4px);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 70px;
+            height: auto;
+        }
+    </style>
+    <script>
+    function toggleAboutMenu() {
+        const menu = document.getElementById("aboutMenu");
+        const arrow = document.getElementById("aboutArrow");
+
+        menu.classList.toggle("hidden");
+        arrow.classList.toggle("rotate-180");
+    }
+
+    // คลิกพื้นที่อื่นเพื่อปิดเมนู
+    document.addEventListener("click", function(event) {
+
+        const menu = document.getElementById("aboutMenu");
+        const button = event.target.closest("button");
+
+        if (!event.target.closest("#aboutMenu") && !button) {
+            menu.classList.add("hidden");
+            document.getElementById("aboutArrow")
+                .classList.remove("rotate-180");
+        }
+
+    });
+</script>
+</head>
+
+
+<body class="bg-white text-[#244b5c]">
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="sticky top-0 z-50 bg-white border-b border-[#dcece9]">
+
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="h-20 flex items-center ">
+
+
+                <!-- LOGO -->
+
+                <a href="index.html" class="flex items-center gap-3">
+
+                    <div class="logo">
+                        <img src="logo.png" alt="โลโก้โรงพยาบาล">
+                    </div>
+
+                    <div>
+                        <div class="text-xl font-extrabold text-[#185867]">
+                            วอดวายเวชกรรม
+                        </div>
+
+                        <div class="text-[9px] text-gray-400 tracking-wider">
+                            WODWAI WETCHAKAM MEDICAL CENTER
+                        </div>
+                    </div>
+
+                </a>
+
+
+                <!-- MENU -->
+
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium ml-8 ">
+                    <div class="relative">
+
+    <button
+        onclick="toggleAboutMenu()"
+        class="flex items-center gap-2
+               hover:text-[#309d82]"
+    >
+        เกี่ยวกับเรา
+
+        <i id="aboutArrow"
+           class="fa-solid fa-chevron-down text-xs
+                  transition-transform">
+        </i>
+    </button>
+
+
+    <!-- Dropdown -->
+    <div
+        id="aboutMenu"
+        class="hidden absolute left-0 top-full mt-4
+               w-52
+               bg-white
+               rounded-xl
+               shadow-lg
+               border border-[#dcece9]
+               overflow-hidden
+               z-50"
+    >
+
+        <a
+            href="hospital.html"
+            class="block px-5 py-3
+                   text-sm text-[#244b5c]
+                   hover:bg-[#f1faf8]
+                   hover:text-[#309d82]"
+        >
+            ประวัติโรงพยาบาล
+        </a>
+
+        <a
+            href="vision.html"
+            class="block px-5 py-3
+                   text-sm text-[#244b5c]
+                   hover:bg-[#f1faf8]
+                   hover:text-[#309d82]"
+        >
+            วิสัยทัศน์
+        </a>
+
+    </div>
+
+</div>
+
+                    <a
+                        href="departments.html"
+                        class="hover:text-[#309d82]"
+                    >
+                        แผนก
+                    </a>
+
+                    <a
+                        href="courses.html"
+                        class="hover:text-[#309d82]"
+                    >
+                        คอร์ส
+                    </a>
+
+                    <a
+                        href="contact.html"
+                        class="hover:text-[#309d82]"
+                    >
+                        ติดต่อเรา
+                    </a>
+                </nav>
+
+
+                <!-- LOGIN -->
+
+                <div class="flex items-center gap-3 ml-auto">
+
+                    <a
+                        href="register.html"
+                        class="hidden sm:block px-5 py-2.5 rounded-lg
+                               border border-[#67bca9]
+                               text-[#3b987f] text-sm font-bold
+                               hover:bg-[#f1faf8]"
+                    >
+                        สมัครสมาชิก
+                    </a>
+
+                    <a
+                        href="login.html"
+                        class="px-5 py-2.5 rounded-lg
+                               bg-[#3ca085] text-white
+                               text-sm font-bold
+                               hover:bg-[#328b74]"
+                    >
+                        เข้าสู่ระบบ
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero-pattern">
+
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="grid lg:grid-cols-2 gap-10 items-center min-h-[560px]">
+
+
+                <!-- TEXT -->
+
+                <div class="py-16">
+
+                    <div class="inline-flex items-center gap-2
+                                px-4 py-2 rounded-full
+                                bg-white/80 text-[#318d79]
+                                text-sm font-bold mb-6">
+
+                        <i class="fa-solid fa-heart-pulse"></i>
+
+                        ดูแลสุขภาพของคุณด้วยความใส่ใจ
+
+                    </div>
+
+
+                    <h1 class="text-4xl md:text-6xl
+                               font-extrabold leading-tight
+                               text-[#174d5a]">
+
+                        สุขภาพที่ดี<br>
+
+                        <span class="text-[#39a386]">
+                            เริ่มต้นจากการดูแล
+                        </span>
+
+                    </h1>
+
+
+                    <p class="mt-6 max-w-xl
+                              text-gray-600
+                              leading-8">
+
+                        โรงพยาบาลวอดวายเวชกรรม
+                        พร้อมให้บริการข้อมูลแพทย์
+                        ตารางนัดหมาย และบริการออนไลน์
+                        เพื่อให้การดูแลสุขภาพของคุณสะดวกมากยิ่งขึ้น
+
+                    </p>
+                    
+
+                   
+
+                </div>
+
+
+                <!-- DECORATION -->
+
+                <div class="hidden lg:flex justify-center items-center">
+
+                    <div class="relative w-[460px] h-[390px]">
+
+                        <div class="absolute
+                                    w-72 h-72 rounded-full
+                                    bg-white/60
+                                    top-12 left-20">
+                        </div>
+
+                        <div class="absolute
+                                    w-32 h-32 rounded-full
+                                    bg-[#bcebe2]
+                                    top-0 right-5">
+                        </div>
+
+                        <div class="absolute
+                                    w-24 h-24 rounded-full
+                                    bg-[#c9eef4]
+                                    bottom-3 left-6">
+                        </div>
+
+
+                        <!-- Medical symbol -->
+
+                        <div class="absolute inset-0
+                                    flex items-center justify-center">
+
+                            <div class="w-44 h-44
+                                        rounded-[38px]
+                                        bg-[#3ca085]
+                                        rotate-45
+                                        flex items-center justify-center
+                                        shadow-lg">
+
+                                <div class="-rotate-45
+                                            text-white text-8xl font-bold">
+                                    ✚
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="absolute
+                                    top-28 left-5
+                                    w-16 h-16
+                                    rounded-full
+                                    bg-white
+                                    flex items-center justify-center
+                                    text-[#3ca085]
+                                    text-2xl shadow">
+                            ♥
+                        </div>
+
+
+                        <div class="absolute
+                                    bottom-20 right-5
+                                    w-16 h-16
+                                    rounded-full
+                                    bg-white
+                                    flex items-center justify-center
+                                    text-[#48aa92]
+                                    text-2xl shadow">
+                            +
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+ 
+    <!-- =====================================================
+         QUICK SERVICES
+    ====================================================== -->
+<!-- =====================================================
+     QUICK SERVICES
+====================================================== -->
+
+<section class="relative -mt-10 z-20 pb-10">
+
+    <div class="max-w-5xl mx-auto px-5">
+
+        <div class="bg-white rounded-2xl shadow-lg
+                    border border-[#e5eeee]
+                    overflow-hidden">
+
+            <div class="grid grid-cols-2 md:grid-cols-4">
+
+                <!-- Doctor -->
+                <a
+                    href="doctors.html"
+                    class="flex items-center justify-center gap-3
+                           px-5 py-5
+                           border-b md:border-b-0 md:border-r
+                           border-[#e5eeee]
+                           text-[#234d5b]
+                           hover:bg-[#f1faf8]
+                           transition"
+                >
+
+                    <div class="w-11 h-11 rounded-full
+                                bg-[#e8f7f3]
+                                text-[#3ca085]
+                                flex items-center justify-center
+                                text-lg flex-shrink-0">
+
+                        <i class="fa-solid fa-user-doctor"></i>
+
+                    </div>
+
+                    <span class="font-bold text-sm">
+                        ค้นหาแพทย์
+                    </span>
+
+                </a>
+
+
+                <!-- Department -->
+                <a
+                    href="departments.html"
+                    class="flex items-center justify-center gap-3
+                           px-5 py-5
+                           border-b md:border-b-0 md:border-r
+                           border-[#e5eeee]
+                           text-[#234d5b]
+                           hover:bg-[#f1faf8]
+                           transition"
+                >
+
+                    <div class="w-11 h-11 rounded-full
+                                bg-[#e8f7f3]
+                                text-[#3ca085]
+                                flex items-center justify-center
+                                text-lg flex-shrink-0">
+
+                        <i class="fa-solid fa-hospital"></i>
+
+                    </div>
+
+                    <span class="font-bold text-sm">
+                        แผนกและบริการ
+                    </span>
+
+                </a>
+
+
+                <!-- Appointment -->
+                <a
+                    href="appointments.html"
+                    class="flex items-center justify-center gap-3
+                           px-5 py-5
+                           border-b md:border-b-0 md:border-r
+                           border-[#e5eeee]
+                           text-[#234d5b]
+                           hover:bg-[#f1faf8]
+                           transition"
+                >
+
+                    <div class="w-11 h-11 rounded-full
+                                bg-[#e8f7f3]
+                                text-[#3ca085]
+                                flex items-center justify-center
+                                text-lg flex-shrink-0">
+
+                        <i class="fa-regular fa-calendar-check"></i>
+
+                    </div>
+
+                    <span class="font-bold text-sm">
+                        นัดหมายแพทย์
+                    </span>
+
+                </a>
+
+
+                <!-- Profile -->
+                <a
+                    href="profile.html"
+                    class="flex items-center justify-center gap-3
+                           px-5 py-5
+                           text-[#234d5b]
+                           hover:bg-[#f1faf8]
+                           transition"
+                >
+
+                    <div class="w-11 h-11 rounded-full
+                                bg-[#e8f7f3]
+                                text-[#3ca085]
+                                flex items-center justify-center
+                                text-lg flex-shrink-0">
+
+                        <i class="fa-regular fa-user"></i>
+
+                    </div>
+
+                    <span class="font-bold text-sm">
+                        โปรไฟล์ของฉัน
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- =====================================================
+         HOSPITAL INFORMATION
+    ====================================================== -->
+
+    <section class="py-16 bg-[#f5fbfa]">
+
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+
+                <div>
+
+                    <p class="text-[#3ca085] font-bold text-sm">
+                        ABOUT US
+                    </p>
+
+                    <h2 class="text-3xl font-extrabold
+                               text-[#174d5a] mt-2">
+
+                        โรงพยาบาลวอดวายเวชกรรม
+
+                    </h2>
+
+
+                    <p class="text-gray-600
+                              leading-8
+                              mt-5">
+
+                        ศูนย์บริการสุขภาพที่มุ่งเน้น
+                        การดูแลผู้รับบริการอย่างใส่ใจ
+                        พร้อมข้อมูลบริการที่เข้าถึงได้ง่าย
+                        และระบบออนไลน์ที่ช่วยให้การใช้งานสะดวกยิ่งขึ้น
+
+                    </p>
+
+
+                    <a
+                        href="hospital.html"
+                        class="inline-block mt-7
+                               px-6 py-3
+                               rounded-xl
+                               bg-white
+                               border border-[#75c5b4]
+                               text-[#3c9b84]
+                               font-bold"
+                    >
+                        อ่านข้อมูลโรงพยาบาล
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="grid grid-cols-2 gap-5">
+
+                    <div class="bg-white rounded-2xl p-7
+                                border border-[#dbece8]">
+
+                        <i class="fa-solid fa-user-doctor
+                                  text-3xl text-[#3ca085]">
+                        </i>
+
+                        <h3 class="font-bold text-xl mt-4">
+                            แพทย์
+                        </h3>
+
+                        <p class="text-gray-500 text-sm mt-2">
+                            ค้นหาแพทย์และดูตารางแพทย์
+                        </p>
+
+                    </div>
+
+
+                    <div class="bg-white rounded-2xl p-7
+                                border border-[#dbece8]">
+
+                        <i class="fa-solid fa-hospital-user
+                                  text-3xl text-[#3ca085]">
+                        </i>
+
+                        <h3 class="font-bold text-xl mt-4">
+                            บริการ
+                        </h3>
+
+                        <p class="text-gray-500 text-sm mt-2">
+                            ข้อมูลบริการของโรงพยาบาล
+                        </p>
+
+                    </div>
+
+
+                    <div class="bg-white rounded-2xl p-7
+                                border border-[#dbece8]">
+
+                        <i class="fa-regular fa-calendar
+                                  text-3xl text-[#3ca085]">
+                        </i>
+
+                        <h3 class="font-bold text-xl mt-4">
+                            นัดหมาย
+                        </h3>
+
+                        <p class="text-gray-500 text-sm mt-2">
+                            ตรวจสอบตารางนัดหมาย
+                        </p>
+
+                    </div>
+
+
+                    <div class="bg-white rounded-2xl p-7
+                                border border-[#dbece8]">
+
+                        <i class="fa-solid fa-heart-pulse
+                                  text-3xl text-[#3ca085]">
+                        </i>
+
+                        <h3 class="font-bold text-xl mt-4">
+                            ดูแลสุขภาพ
+                        </h3>
+
+                        <p class="text-gray-500 text-sm mt-2">
+                            บริการสุขภาพออนไลน์
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DOCTORS
+    ====================================================== -->
+
+    <section class="py-16 bg-white">
+
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="flex items-end justify-between mb-10">
+
+                <div>
+
+                    <p class="text-[#3ca085] font-bold text-sm">
+                        OUR DOCTORS
+                    </p>
+
+                    <h2 class="text-3xl font-extrabold
+                               text-[#174d5a] mt-2">
+
+                        รายชื่อแพทย์
+
+                    </h2>
+
+                </div>
+
+
+                <a
+                    href="doctors.html"
+                    class="hidden sm:block
+                           text-[#3ca085]
+                           font-bold text-sm"
+                >
+                    ดูแพทย์ทั้งหมด
+                    <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+
+            </div>
+
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+                <div class="doctor-card
+                            border border-[#dcece9]
+                            rounded-2xl overflow-hidden">
+
+                    <div class="h-44 bg-[#eaf8f5]
+                                flex items-center justify-center">
+
+                        <i class="fa-solid fa-user-doctor
+                                  text-7xl text-[#65bba6]">
+                        </i>
+
+                    </div>
+
+                    <div class="p-5">
+
+                        <h3 class="font-bold text-lg">
+                            นพ. ตัวอย่าง แพทย์
+                        </h3>
+
+                        <p class="text-sm text-[#3ca085] mt-1">
+                            อายุรกรรม
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-3">
+                            ให้คำปรึกษาด้านสุขภาพทั่วไป
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="doctor-card
+                            border border-[#dcece9]
+                            rounded-2xl overflow-hidden">
+
+                    <div class="h-44 bg-[#eaf8f5]
+                                flex items-center justify-center">
+
+                        <i class="fa-solid fa-user-doctor
+                                  text-7xl text-[#65bba6]">
+                        </i>
+
+                    </div>
+
+                    <div class="p-5">
+
+                        <h3 class="font-bold text-lg">
+                            พญ. ตัวอย่าง แพทย์
+                        </h3>
+
+                        <p class="text-sm text-[#3ca085] mt-1">
+                            กุมารเวชกรรม
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-3">
+                            ให้คำปรึกษาด้านสุขภาพเด็ก
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="doctor-card
+                            border border-[#dcece9]
+                            rounded-2xl overflow-hidden">
+
+                    <div class="h-44 bg-[#eaf8f5]
+                                flex items-center justify-center">
+
+                        <i class="fa-solid fa-user-doctor
+                                  text-7xl text-[#65bba6]">
+                        </i>
+
+                    </div>
+
+                    <div class="p-5">
+
+                        <h3 class="font-bold text-lg">
+                            นพ. ตัวอย่าง แพทย์
+                        </h3>
+
+                        <p class="text-sm text-[#3ca085] mt-1">
+                            ศัลยกรรม
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-3">
+                            ให้คำปรึกษาด้านศัลยกรรม
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         NEWS
+    ====================================================== -->
+
+    <section class="py-16 bg-[#f5fbfa]">
+
+        <div class="max-w-7xl mx-auto px-5">
+
+            <div class="text-center mb-10">
+
+                <p class="text-[#3ca085] font-bold text-sm">
+                    NEWS & INFORMATION
+                </p>
+
+                <h2 class="text-3xl font-extrabold
+                           text-[#174d5a] mt-2">
+
+                    ข่าวสารและข้อมูลสุขภาพ
+
+                </h2>
+
+            </div>
+
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+
+                <article class="bg-white rounded-2xl p-6 border border-[#dcece9]">
+
+                    <div class="text-xs text-[#3ca085] font-bold">
+                        HEALTH
+                    </div>
+
+                    <h3 class="font-bold text-lg mt-3">
+                        ดูแลสุขภาพในชีวิตประจำวัน
+                    </h3>
+
+                    <p class="text-gray-500 text-sm mt-3 leading-6">
+                        ข้อมูลความรู้สุขภาพสำหรับผู้รับบริการ
+                    </p>
+
+                    <a
+                        href="#"
+                        class="inline-block mt-5 text-[#3ca085]
+                               font-bold text-sm"
+                    >
+                        อ่านเพิ่มเติม →
+                    </a>
+
+                </article>
+
+
+                <article class="bg-white rounded-2xl p-6 border border-[#dcece9]">
+
+                    <div class="text-xs text-[#3ca085] font-bold">
+                        SERVICE
+                    </div>
+
+                    <h3 class="font-bold text-lg mt-3">
+                        บริการออนไลน์ของโรงพยาบาล
+                    </h3>
+
+                    <p class="text-gray-500 text-sm mt-3 leading-6">
+                        รวมข้อมูลบริการต่าง ๆ ที่สามารถใช้งานผ่านเว็บไซต์
+                    </p>
+
+                    <a
+                        href="hospital.html"
+                        class="inline-block mt-5 text-[#3ca085]
+                               font-bold text-sm"
+                    >
+                        อ่านเพิ่มเติม →
+                    </a>
+
+                </article>
+
+
+                <article class="bg-white rounded-2xl p-6 border border-[#dcece9]">
+
+                    <div class="text-xs text-[#3ca085] font-bold">
+                        APPOINTMENT
+                    </div>
+
+                    <h3 class="font-bold text-lg mt-3">
+                        ตรวจสอบตารางนัดหมาย
+                    </h3>
+
+                    <p class="text-gray-500 text-sm mt-3 leading-6">
+                        ตรวจสอบข้อมูลนัดหมายและบริการที่เกี่ยวข้อง
+                    </p>
+
+                    <a
+                        href="appointments.html"
+                        class="inline-block mt-5 text-[#3ca085]
+                               font-bold text-sm"
+                    >
+                        ดูนัดหมาย →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="bg-[#174d5a] text-white">
+
+        <div class="max-w-7xl mx-auto px-5 py-12">
+
+            <div class="grid md:grid-cols-4 gap-10">
+
+
+                <div class="md:col-span-2">
+
+                    <div class="text-xl font-extrabold">
+                        วอดวายเวชกรรม
+                    </div>
+
+                    <p class="text-white/70 text-sm mt-3 max-w-md leading-6">
+                        โรงพยาบาลวอดวายเวชกรรม
+                        ระบบบริการข้อมูลและบริการออนไลน์สำหรับผู้รับบริการ
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="font-bold mb-4">
+                        เมนู
+                    </h3>
+
+                    <div class="space-y-2 text-sm text-white/70">
+
+                        <a href="index.html" class="block hover:text-white">
+                            หน้าแรก
+                        </a>
+
+                        <a href="hospital.html" class="block hover:text-white">
+                            โรงพยาบาล
+                        </a>
+
+                        <a href="departments.html" class="block hover:text-white">
+                            แผนก
+                        </a>
+
+                        <a href="doctors.html" class="block hover:text-white">
+                            แพทย์
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h3 class="font-bold mb-4">
+                        บริการ
+                    </h3>
+
+                    <div class="space-y-2 text-sm text-white/70">
+
+                        <a href="appointments.html" class="block hover:text-white">
+                            นัดหมาย
+                        </a>
+
+                        <a href="profile.html" class="block hover:text-white">
+                            โปรไฟล์
+                        </a>
+
+                        <a href="register.html" class="block hover:text-white">
+                            สมัครสมาชิก
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="border-t border-white/15 mt-10 pt-6
+                        flex flex-col sm:flex-row
+                        justify-between gap-3
+                        text-xs text-white/50">
+
+                <span>
+                    © 2026 วอดวายเวชกรรม
+                </span>
+
+                <span>
+                    Hospital Website Prototype
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

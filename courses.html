@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>คอร์สสุขภาพ | วอดวายเวชกรรม</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+        body {
+            font-family: "Noto Sans Thai", sans-serif;
+        }
+
+        .course-card {
+            transition: all 0.25s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+
+<body class="bg-[#f7fcfa] text-gray-700">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+
+            <div class="flex items-center">
+
+                <!-- LOGO -->
+                <a
+                href="index.html"
+                class="flex items-center gap-3"
+            >
+
+                <img
+                    src="logo.png"
+                    alt="โลโก้โรงพยาบาล"
+                    class="w-[70px] h-auto"
+                >
+
+
+                <div>
+
+                    <div
+                        class="text-xl
+                               font-extrabold
+                               text-[#185867]"
+                    >
+                        วอดวายเวชกรรม
+                    </div>
+
+
+                    <div
+                        class="text-[9px]
+                               text-gray-400
+                               tracking-wider"
+                    >
+                        WODWAI WETCHAKAM MEDICAL CENTER
+                    </div>
+
+                </div>
+
+            </a>
+
+                <!-- MENU -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium ml-8 ">
+                    <div class="relative">
+
+    <button
+        onclick="toggleAboutMenu()"
+        class="flex items-center gap-2
+               hover:text-[#309d82]"
+    >
+        เกี่ยวกับเรา
+
+        <i id="aboutArrow"
+           class="fa-solid fa-chevron-down text-xs
+                  transition-transform">
+        </i>
+    </button>
+
+
+    <!-- Dropdown -->
+    <div
+        id="aboutMenu"
+        class="hidden absolute left-0 top-full mt-4
+               w-52
+               bg-white
+               rounded-xl
+               shadow-lg
+               border border-[#dcece9]
+               overflow-hidden
+               z-50"
+    >
+
+        <a
+            href="hospital.html"
+            class="block px-5 py-3
+                   text-sm text-[#244b5c]
+                   hover:bg-[#f1faf8]
+                   hover:text-[#309d82]"
+        >
+            ประวัติโรงพยาบาล
+        </a>
+
+        <a
+            href="vision.html"
+            class="block px-5 py-3
+                   text-sm text-[#244b5c]
+                   hover:bg-[#f1faf8]
+                   hover:text-[#309d82]"
+        >
+            วิสัยทัศน์
+        </a>
+
+    </div>
+
+</div>
+
+                    <a
+                        href="departments.html"
+                        class="hover:text-[#309d82]"
+                    >
+                        แผนก
+                    </a>
+
+                    <a
+                        href="courses.html"
+                        class="hover:text-[#309d82]"
+                    >
+                        คอร์ส
+                    </a>
+
+                    <a
+                        href="contact.html"
+                        class="hover:text-[#309d82]"
+                    >
+                        ติดต่อเรา
+                    </a>
+                </nav>
+
+                <!-- RIGHT BUTTONS -->
+                <div class="flex items-center gap-4 ml-auto">
+
+                    <a
+                        href="register.html"
+                        class="px-5 py-2.5 rounded-lg
+                               border border-[#67bca9]
+                               text-[#3b987f] text-sm font-bold
+                               hover:bg-[#f1faf8]"
+                    >
+                        สมัครสมาชิก
+                    </a>
+
+                    <a
+                        href="login.html"
+                        class="px-5 py-2.5 rounded-lg
+                               bg-[#3ca085]
+                               text-white text-sm font-bold
+                               hover:bg-[#338d75]"
+                    >
+                        เข้าสู่ระบบ
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ================= HEADER ================= -->
+    <section class="bg-gradient-to-r from-[#e9f8f3] to-[#eef9fc] py-16">
+
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+            <p class="text-[#3b987f] font-semibold mb-3">
+                HEALTH SERVICES
+            </p>
+
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">
+                คอร์สสุขภาพ
+            </h1>
+
+            <p class="text-gray-500">
+                บริการดูแลสุขภาพจากวอดวายเวชกรรม
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COURSES ================= -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+            <!-- ตรวจสุขภาพประจำปี -->
+            <div
+                onclick="showCourse('checkup')"
+                class="course-card cursor-pointer bg-white rounded-2xl
+                       overflow-hidden border border-gray-100"
+            >
+
+                <div
+                    class="h-52 bg-gradient-to-br from-[#dff5ee] to-[#edfafa]
+                           flex items-center justify-center"
+                >
+                    <i
+                        class="fa-solid fa-heart-pulse
+                               text-7xl text-[#3ca085]"
+                    ></i>
+                </div>
+
+                <div class="p-7">
+
+                    <span
+                        class="inline-block px-3 py-1 rounded-full
+                               bg-[#e9f8f3] text-[#3b987f]
+                               text-sm font-semibold mb-4"
+                    >
+                        ตรวจสุขภาพ
+                    </span>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">
+                        ตรวจสุขภาพประจำปี
+                    </h2>
+
+                    <p class="text-gray-500 leading-7">
+                        โปรแกรมตรวจสุขภาพเพื่อช่วยติดตามและประเมิน
+                        สุขภาพโดยรวมของร่างกาย
+                    </p>
+
+                    <div class="mt-6 text-[#3b987f] font-semibold">
+                        ดูรายละเอียด
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- กายภาพบำบัด -->
+            <div
+                onclick="showCourse('physical')"
+                class="course-card cursor-pointer bg-white rounded-2xl
+                       overflow-hidden border border-gray-100"
+            >
+
+                <div
+                    class="h-52 bg-gradient-to-br from-[#e3f4fb] to-[#eef9fc]
+                           flex items-center justify-center"
+                >
+                    <i
+                        class="fa-solid fa-person-walking
+                               text-7xl text-[#4fa6bd]"
+                    ></i>
+                </div>
+
+                <div class="p-7">
+
+                    <span
+                        class="inline-block px-3 py-1 rounded-full
+                               bg-[#eaf7fb] text-[#438fa5]
+                               text-sm font-semibold mb-4"
+                    >
+                        ฟื้นฟูสุขภาพ
+                    </span>
+
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">
+                        กายภาพบำบัด
+                    </h2>
+
+                    <p class="text-gray-500 leading-7">
+                        การฟื้นฟูและส่งเสริมการเคลื่อนไหวของร่างกาย
+                        เพื่อช่วยให้สามารถกลับมาใช้ชีวิตประจำวันได้ดีขึ้น
+                    </p>
+
+                    <div class="mt-6 text-[#438fa5] font-semibold">
+                        ดูรายละเอียด
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= COURSE DETAIL ================= -->
+    <section
+        id="courseDetail"
+        class="hidden max-w-5xl mx-auto px-6 pb-20"
+    >
+
+        <div class="bg-white rounded-2xl border border-gray-100 p-8 md:p-10">
+
+            <div class="flex items-start justify-between gap-5">
+
+                <div>
+                    <p
+                        id="detailCategory"
+                        class="text-[#3b987f] font-semibold mb-2"
+                    ></p>
+
+                    <h2
+                        id="detailTitle"
+                        class="text-3xl font-bold text-gray-800"
+                    ></h2>
+                </div>
+
+                <button
+                    onclick="closeCourse()"
+                    class="w-10 h-10 rounded-full bg-gray-100
+                           hover:bg-gray-200 text-gray-500"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="border-t border-gray-100 my-7"></div>
+
+
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <div class="p-5 bg-[#f5fbf9] rounded-xl">
+
+                    <i
+                        id="detailIcon"
+                        class="fa-solid text-2xl text-[#3ca085] mb-4"
+                    ></i>
+
+                    <h3 class="font-bold text-gray-800 mb-2">
+                        รายละเอียด
+                    </h3>
+
+                    <p
+                        id="detailDescription"
+                        class="text-gray-500 text-sm leading-6"
+                    ></p>
+
+                </div>
+
+
+                <div class="p-5 bg-[#f5fbf9] rounded-xl">
+
+                    <i
+                        class="fa-solid fa-list-check
+                               text-2xl text-[#3ca085] mb-4"
+                    ></i>
+
+                    <h3 class="font-bold text-gray-800 mb-2">
+                        รายการบริการ
+                    </h3>
+
+                    <ul
+                        id="detailServices"
+                        class="text-gray-500 text-sm leading-7"
+                    ></ul>
+
+                </div>
+
+
+                <div class="p-5 bg-[#f5fbf9] rounded-xl">
+
+                    <i
+                        class="fa-solid fa-circle-info
+                               text-2xl text-[#3ca085] mb-4"
+                    ></i>
+
+                    <h3 class="font-bold text-gray-800 mb-2">
+                        ข้อมูลเพิ่มเติม
+                    </h3>
+
+                    <p
+                        id="detailInfo"
+                        class="text-gray-500 text-sm leading-6"
+                    ></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-[#eef9f5] mt-10">
+
+        <div class="max-w-7xl mx-auto px-6 py-8 text-center">
+
+            <p class="text-[#3b987f] font-bold">
+                วอดวายเวชกรรม
+            </p>
+
+            <p class="text-gray-500 text-sm mt-2">
+                ศูนย์บริการด้านสุขภาพและการดูแลผู้ป่วย
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+
+        const courses = {
+
+            checkup: {
+                category: "ตรวจสุขภาพ",
+                title: "ตรวจสุขภาพประจำปี",
+                icon: "fa-heart-pulse",
+
+                description:
+                    "โปรแกรมตรวจสุขภาพสำหรับติดตามและประเมินสุขภาพโดยรวมของร่างกาย",
+
+                services: [
+                    "ตรวจสุขภาพเบื้องต้น",
+                    "ประเมินสุขภาพโดยรวม",
+                    "ตรวจตามรายการของโปรแกรม"
+                ],
+
+                info:
+                    "รายละเอียดรายการตรวจสามารถเปลี่ยนแปลงได้ตามโปรแกรมที่โรงพยาบาลกำหนด"
+            },
+
+            physical: {
+                category: "ฟื้นฟูสุขภาพ",
+                title: "กายภาพบำบัด",
+                icon: "fa-person-walking",
+
+                description:
+                    "บริการฟื้นฟูและส่งเสริมการเคลื่อนไหวของร่างกาย โดยเน้นการดูแลให้เหมาะสมกับผู้รับบริการ",
+
+                services: [
+                    "ประเมินการเคลื่อนไหว",
+                    "การฟื้นฟูร่างกาย",
+                    "การออกกำลังกายเพื่อการฟื้นฟู"
+                ],
+
+                info:
+                    "รูปแบบการดูแลและการฟื้นฟูขึ้นอยู่กับสภาพร่างกายและความเหมาะสมของผู้รับบริการ"
+            }
+
+        };
+
+
+        function showCourse(courseId) {
+
+            const course = courses[courseId];
+
+            document.getElementById("courseDetail").classList.remove("hidden");
+
+            document.getElementById("detailCategory").textContent =
+                course.category;
+
+            document.getElementById("detailTitle").textContent =
+                course.title;
+
+            document.getElementById("detailDescription").textContent =
+                course.description;
+
+            document.getElementById("detailInfo").textContent =
+                course.info;
+
+            document.getElementById("detailIcon").className =
+                "fa-solid " + course.icon +
+                " text-2xl text-[#3ca085] mb-4";
+
+
+            const serviceList =
+                document.getElementById("detailServices");
+
+            serviceList.innerHTML = "";
+
+            course.services.forEach(service => {
+
+                const li = document.createElement("li");
+
+                li.innerHTML =
+                    `<i class="fa-solid fa-check text-[#3ca085] mr-2"></i>
+                     ${service}`;
+
+                serviceList.appendChild(li);
+
+            });
+
+
+            document.getElementById("courseDetail")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+
+        function closeCourse() {
+
+            document.getElementById("courseDetail")
+                .classList.add("hidden");
+
+        }
+
+
+        function toggleAboutMenu() {
+
+            document.getElementById("aboutMenu")
+                .classList.toggle("hidden");
+
+        }
+
+
+        document.addEventListener("click", function(event) {
+
+            const menu = document.getElementById("aboutMenu");
+
+            if (!event.target.closest(".relative")) {
+                menu.classList.add("hidden");
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

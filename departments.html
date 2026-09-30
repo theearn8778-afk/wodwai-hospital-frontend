@@ -1,0 +1,2839 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>แผนกและบริการ | วอดวายเวชกรรม</title>
+
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+
+        .department-card {
+            transition: all 0.2s ease;
+        }
+
+
+        .department-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(44, 137, 116, 0.12);
+        }
+
+
+        .filter-btn {
+            transition: all 0.2s ease;
+        }
+
+
+        .doctor-card {
+            transition: all 0.2s ease;
+        }
+
+
+        .doctor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(44, 137, 116, 0.10);
+        }
+
+
+        .schedule-row {
+            transition: background 0.2s ease;
+        }
+
+
+        .schedule-row:hover {
+            background: #f1faf8;
+        }
+
+    </style>
+
+</head>
+
+
+
+<body class="bg-white text-[#244b5c]">
+
+
+<!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+<header class="sticky top-0 z-50 bg-white border-b border-[#dcece9]">
+
+    <div class="max-w-7xl mx-auto px-5">
+
+        <div class="h-20 flex items-center">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="flex items-center gap-3"
+            >
+
+                <img
+                    src="logo.png"
+                    alt="โลโก้โรงพยาบาล"
+                    class="w-[70px] h-auto"
+                >
+
+
+                <div>
+
+                    <div
+                        class="text-xl
+                               font-extrabold
+                               text-[#185867]"
+                    >
+                        วอดวายเวชกรรม
+                    </div>
+
+
+                    <div
+                        class="text-[9px]
+                               text-gray-400
+                               tracking-wider"
+                    >
+                        WODWAI WETCHAKAM MEDICAL CENTER
+                    </div>
+
+                </div>
+
+            </a>
+
+
+
+            <!-- MENU -->
+
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-medium ml-8 ">
+                    <div class="relative">
+
+    <button
+        onclick="toggleAboutMenu()"
+        class="flex items-center gap-2
+               hover:text-[#309d82]"
+    >
+        เกี่ยวกับเรา
+
+        <i id="aboutArrow"
+           class="fa-solid fa-chevron-down text-xs
+                  transition-transform">
+        </i>
+    </button>
+
+
+    <!-- Dropdown -->
+    <div
+        id="aboutMenu"
+        class="hidden absolute left-0 top-full mt-4
+               w-52
+               bg-white
+               rounded-xl
+               shadow-lg
+               border border-[#dcece9]
+               overflow-hidden
+               z-50"
+    >
+
+        <a
+            href="hospital.html"
+            class="block px-5 py-3
+                   text-sm text-[#244b5c]
+                   hover:bg-[#f1faf8]
+                   hover:text-[#309d82]"
+        >
+            ประวัติโรงพยาบาล
+        </a>
+
+        <a
+            href="vision.html"
+            class="block px-5 py-3
+                   text-sm text-[#244b5c]
+                   hover:bg-[#f1faf8]
+                   hover:text-[#309d82]"
+        >
+            วิสัยทัศน์
+        </a>
+
+    </div>
+
+</div>
+
+                    <a
+                        href="departments.html"
+                        class="hover:text-[#309d82]"
+                    >
+                        แผนก
+                    </a>
+
+                    <a
+                        href="courses.html"
+                        class="hover:text-[#309d82]"
+                    >
+                        คอร์ส
+                    </a>
+
+                    <a
+                        href="contact.html"
+                        class="hover:text-[#309d82]"
+                    >
+                        ติดต่อเรา
+                    </a>
+                </nav>
+
+
+
+            <!-- RIGHT BUTTON -->
+
+            <div
+                class="flex
+                       items-center
+                       gap-3
+                       ml-auto"
+            >
+
+                <a
+                    href="register.html"
+                    class="hidden
+                           sm:block
+                           px-5
+                           py-2.5
+                           rounded-lg
+                           border
+                           border-[#67bca9]
+                           text-[#3b987f]
+                           text-sm
+                           font-bold
+                           hover:bg-[#f1faf8]"
+                >
+                    สมัครสมาชิก
+                </a>
+
+
+                <a
+                    href="login.html"
+                    class="px-5
+                           py-2.5
+                           rounded-lg
+                           bg-[#3ca085]
+                           text-white
+                           text-sm
+                           font-bold
+                           hover:bg-[#328b74]"
+                >
+                    เข้าสู่ระบบ
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     PAGE HEADER
+====================================================== -->
+
+<section
+    class="bg-gradient-to-br
+           from-[#dff6f1]
+           via-[#eaf8f5]
+           to-[#d8f0ec]"
+>
+
+    <div
+        class="max-w-7xl
+               mx-auto
+               px-5
+               py-16"
+    >
+
+        <div class="text-center">
+
+
+            <div
+                class="inline-flex
+                       items-center
+                       justify-center
+                       w-16
+                       h-16
+                       rounded-2xl
+                       bg-white
+                       text-[#3ca085]
+                       text-2xl
+                       shadow-sm
+                       mb-5"
+            >
+
+                <i class="fa-solid fa-hospital"></i>
+
+            </div>
+
+
+            <h1
+                class="text-4xl
+                       md:text-5xl
+                       font-extrabold
+                       text-[#174d5a]"
+            >
+                แผนกและบริการ
+            </h1>
+
+
+            <p
+                class="mt-4
+                       text-gray-600"
+            >
+                เลือกแผนกเพื่อดูข้อมูล
+                แพทย์ประจำแผนก
+                และตารางเข้าตรวจ
+            </p>
+
+
+
+            <!-- SEARCH DOCTOR -->
+
+            <div
+                class="max-w-2xl
+                       mx-auto
+                       mt-8"
+            >
+
+                <div class="relative">
+
+                    <i
+                        class="fa-solid
+                               fa-magnifying-glass
+                               absolute
+                               left-5
+                               top-1/2
+                               -translate-y-1/2
+                               text-[#3ca085]"
+                    ></i>
+
+
+                    <input
+                        id="doctorSearch"
+                        type="text"
+                        placeholder="ค้นหาชื่อแพทย์ หรือความเชี่ยวชาญ..."
+                        oninput="searchDoctor()"
+                        class="w-full
+                               pl-12
+                               pr-5
+                               py-4
+                               rounded-2xl
+                               border
+                               border-[#cfe5e0]
+                               bg-white
+                               outline-none
+                               focus:border-[#3ca085]
+                               focus:ring-2
+                               focus:ring-[#3ca085]/20"
+                    >
+
+                </div>
+
+
+                <!-- SEARCH RESULT -->
+
+                <div
+                    id="doctorSearchResult"
+                    class="hidden
+                           mt-4
+                           text-left"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DEPARTMENT FILTER
+====================================================== -->
+
+<section
+    class="py-10
+           bg-white"
+>
+
+    <div
+        class="max-w-7xl
+               mx-auto
+               px-5"
+    >
+
+        <div
+            class="text-center
+                   mb-6"
+        >
+
+            <p
+                class="text-[#3ca085]
+                       font-bold
+                       text-sm"
+            >
+                SELECT DEPARTMENT
+            </p>
+
+
+            <h2
+                class="text-2xl
+                       font-extrabold
+                       text-[#174d5a]
+                       mt-2"
+            >
+                เลือกแผนก
+            </h2>
+
+        </div>
+
+
+
+        <div
+            class="flex
+                   flex-wrap
+                   justify-center
+                   gap-3"
+        >
+
+
+            <button
+                onclick="showAllDepartments()"
+                id="btn-all"
+                class="filter-btn
+                       px-5
+                       py-2.5
+                       rounded-full
+                       bg-[#3ca085]
+                       text-white
+                       font-bold
+                       text-sm"
+            >
+                ทั้งหมด
+            </button>
+
+
+            <button
+                onclick="showDepartment('medicine')"
+                id="btn-medicine"
+                class="filter-btn
+                       px-5
+                       py-2.5
+                       rounded-full
+                       bg-[#eef8f5]
+                       text-[#3b987f]
+                       font-bold
+                       text-sm
+                       hover:bg-[#dff3ed]"
+            >
+                อายุรกรรม
+            </button>
+
+
+            <button
+                onclick="showDepartment('pediatrics')"
+                id="btn-pediatrics"
+                class="filter-btn
+                       px-5
+                       py-2.5
+                       rounded-full
+                       bg-[#eef8f5]
+                       text-[#3b987f]
+                       font-bold
+                       text-sm
+                       hover:bg-[#dff3ed]"
+            >
+                กุมารเวชกรรม
+            </button>
+
+
+            <button
+                onclick="showDepartment('surgery')"
+                id="btn-surgery"
+                class="filter-btn
+                       px-5
+                       py-2.5
+                       rounded-full
+                       bg-[#eef8f5]
+                       text-[#3b987f]
+                       font-bold
+                       text-sm
+                       hover:bg-[#dff3ed]"
+            >
+                ศัลยกรรม
+            </button>
+
+
+            <button
+                onclick="showDepartment('dental')"
+                id="btn-dental"
+                class="filter-btn
+                       px-5
+                       py-2.5
+                       rounded-full
+                       bg-[#eef8f5]
+                       text-[#3b987f]
+                       font-bold
+                       text-sm
+                       hover:bg-[#dff3ed]"
+            >
+                ทันตกรรม
+            </button>
+
+
+            <button
+                onclick="showDepartment('ortho')"
+                id="btn-ortho"
+                class="filter-btn
+                       px-5
+                       py-2.5
+                       rounded-full
+                       bg-[#eef8f5]
+                       text-[#3b987f]
+                       font-bold
+                       text-sm
+                       hover:bg-[#dff3ed]"
+            >
+                กระดูกและข้อ
+            </button>
+
+
+            <button
+                onclick="showDepartment('obgyn')"
+                id="btn-obgyn"
+                class="filter-btn
+                       px-5
+                       py-2.5
+                       rounded-full
+                       bg-[#eef8f5]
+                       text-[#3b987f]
+                       font-bold
+                       text-sm
+                       hover:bg-[#dff3ed]"
+            >
+                สูตินรีเวช
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ALL DEPARTMENTS
+====================================================== -->
+
+<section
+    id="allDepartments"
+    class="pb-16
+           bg-white"
+>
+
+    <div
+        class="max-w-7xl
+               mx-auto
+               px-5"
+    >
+
+        <div class="mb-8">
+
+            <p
+                class="text-[#3ca085]
+                       font-bold
+                       text-sm"
+            >
+                DEPARTMENTS
+            </p>
+
+
+            <h2
+                class="text-3xl
+                       font-extrabold
+                       text-[#174d5a]
+                       mt-2"
+            >
+                แผนกทั้งหมด
+            </h2>
+
+        </div>
+
+
+
+        <div
+            class="grid
+                   sm:grid-cols-2
+                   lg:grid-cols-3
+                   gap-6"
+        >
+
+
+            <!-- MEDICINE -->
+
+            <button
+                onclick="showDepartment('medicine')"
+                class="department-card
+                       text-left
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-[#dcece9]
+                       overflow-hidden"
+            >
+
+                <div
+                    class="h-40
+                           bg-[#eaf8f5]
+                           flex
+                           items-center
+                           justify-center"
+                >
+
+                    <i
+                        class="fa-solid
+                               fa-user-doctor
+                               text-6xl
+                               text-[#55ad97]"
+                    ></i>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p
+                        class="text-sm
+                               text-[#3ca085]
+                               font-bold"
+                    >
+                        MEDICINE
+                    </p>
+
+
+                    <h3
+                        class="text-xl
+                               font-extrabold
+                               mt-2"
+                    >
+                        อายุรกรรม
+                    </h3>
+
+
+                    <p
+                        class="text-sm
+                               text-gray-500
+                               mt-3
+                               leading-6"
+                    >
+                        ตรวจ วินิจฉัย
+                        และรักษาโรคทั่วไป
+                    </p>
+
+
+                    <div
+                        class="mt-5
+                               text-[#3ca085]
+                               font-bold
+                               text-sm"
+                    >
+                        ดูข้อมูลแผนก
+                        <i
+                            class="fa-solid
+                                   fa-arrow-right
+                                   ml-1"
+                        ></i>
+                    </div>
+
+                </div>
+
+            </button>
+
+
+
+            <!-- PEDIATRICS -->
+
+            <button
+                onclick="showDepartment('pediatrics')"
+                class="department-card
+                       text-left
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-[#dcece9]
+                       overflow-hidden"
+            >
+
+                <div
+                    class="h-40
+                           bg-[#eaf8f5]
+                           flex
+                           items-center
+                           justify-center"
+                >
+
+                    <i
+                        class="fa-solid
+                               fa-child
+                               text-6xl
+                               text-[#55ad97]"
+                    ></i>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p
+                        class="text-sm
+                               text-[#3ca085]
+                               font-bold"
+                    >
+                        PEDIATRICS
+                    </p>
+
+
+                    <h3
+                        class="text-xl
+                               font-extrabold
+                               mt-2"
+                    >
+                        กุมารเวชกรรม
+                    </h3>
+
+
+                    <p
+                        class="text-sm
+                               text-gray-500
+                               mt-3
+                               leading-6"
+                    >
+                        ตรวจและดูแลสุขภาพสำหรับเด็ก
+                    </p>
+
+
+                    <div
+                        class="mt-5
+                               text-[#3ca085]
+                               font-bold
+                               text-sm"
+                    >
+                        ดูข้อมูลแผนก
+                        <i
+                            class="fa-solid
+                                   fa-arrow-right
+                                   ml-1"
+                        ></i>
+                    </div>
+
+                </div>
+
+            </button>
+
+
+
+            <!-- SURGERY -->
+
+            <button
+                onclick="showDepartment('surgery')"
+                class="department-card
+                       text-left
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-[#dcece9]
+                       overflow-hidden"
+            >
+
+                <div
+                    class="h-40
+                           bg-[#eaf8f5]
+                           flex
+                           items-center
+                           justify-center"
+                >
+
+                    <i
+                        class="fa-solid
+                               fa-syringe
+                               text-6xl
+                               text-[#55ad97]"
+                    ></i>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p
+                        class="text-sm
+                               text-[#3ca085]
+                               font-bold"
+                    >
+                        SURGERY
+                    </p>
+
+
+                    <h3
+                        class="text-xl
+                               font-extrabold
+                               mt-2"
+                    >
+                        ศัลยกรรม
+                    </h3>
+
+
+                    <p
+                        class="text-sm
+                               text-gray-500
+                               mt-3
+                               leading-6"
+                    >
+                        ตรวจและรักษาด้านศัลยกรรม
+                    </p>
+
+
+                    <div
+                        class="mt-5
+                               text-[#3ca085]
+                               font-bold
+                               text-sm"
+                    >
+                        ดูข้อมูลแผนก
+                        <i
+                            class="fa-solid
+                                   fa-arrow-right
+                                   ml-1"
+                        ></i>
+                    </div>
+
+                </div>
+
+            </button>
+
+
+
+            <!-- DENTAL -->
+
+            <button
+                onclick="showDepartment('dental')"
+                class="department-card
+                       text-left
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-[#dcece9]
+                       overflow-hidden"
+            >
+
+                <div
+                    class="h-40
+                           bg-[#eaf8f5]
+                           flex
+                           items-center
+                           justify-center"
+                >
+
+                    <i
+                        class="fa-solid
+                               fa-tooth
+                               text-6xl
+                               text-[#55ad97]"
+                    ></i>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p
+                        class="text-sm
+                               text-[#3ca085]
+                               font-bold"
+                    >
+                        DENTAL
+                    </p>
+
+
+                    <h3
+                        class="text-xl
+                               font-extrabold
+                               mt-2"
+                    >
+                        ทันตกรรม
+                    </h3>
+
+
+                    <p
+                        class="text-sm
+                               text-gray-500
+                               mt-3
+                               leading-6"
+                    >
+                        ตรวจรักษาและดูแลสุขภาพช่องปาก
+                    </p>
+
+
+                    <div
+                        class="mt-5
+                               text-[#3ca085]
+                               font-bold
+                               text-sm"
+                    >
+                        ดูข้อมูลแผนก
+                        <i
+                            class="fa-solid
+                                   fa-arrow-right
+                                   ml-1"
+                        ></i>
+                    </div>
+
+                </div>
+
+            </button>
+
+
+
+            <!-- ORTHOPEDICS -->
+
+            <button
+                onclick="showDepartment('ortho')"
+                class="department-card
+                       text-left
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-[#dcece9]
+                       overflow-hidden"
+            >
+
+                <div
+                    class="h-40
+                           bg-[#eaf8f5]
+                           flex
+                           items-center
+                           justify-center"
+                >
+
+                    <i
+                        class="fa-solid
+                               fa-bone
+                               text-6xl
+                               text-[#55ad97]"
+                    ></i>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p
+                        class="text-sm
+                               text-[#3ca085]
+                               font-bold"
+                    >
+                        ORTHOPEDICS
+                    </p>
+
+
+                    <h3
+                        class="text-xl
+                               font-extrabold
+                               mt-2"
+                    >
+                        กระดูกและข้อ
+                    </h3>
+
+
+                    <p
+                        class="text-sm
+                               text-gray-500
+                               mt-3
+                               leading-6"
+                    >
+                        ตรวจและดูแลโรคกระดูกและข้อ
+                    </p>
+
+
+                    <div
+                        class="mt-5
+                               text-[#3ca085]
+                               font-bold
+                               text-sm"
+                    >
+                        ดูข้อมูลแผนก
+                        <i
+                            class="fa-solid
+                                   fa-arrow-right
+                                   ml-1"
+                        ></i>
+                    </div>
+
+                </div>
+
+            </button>
+
+
+
+            <!-- OBGYN -->
+
+            <button
+                onclick="showDepartment('obgyn')"
+                class="department-card
+                       text-left
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-[#dcece9]
+                       overflow-hidden"
+            >
+
+                <div
+                    class="h-40
+                           bg-[#eaf8f5]
+                           flex
+                           items-center
+                           justify-center"
+                >
+
+                    <i
+                        class="fa-solid
+                               fa-person-pregnant
+                               text-6xl
+                               text-[#55ad97]"
+                    ></i>
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p
+                        class="text-sm
+                               text-[#3ca085]
+                               font-bold"
+                    >
+                        OBSTETRICS & GYNECOLOGY
+                    </p>
+
+
+                    <h3
+                        class="text-xl
+                               font-extrabold
+                               mt-2"
+                    >
+                        สูตินรีเวช
+                    </h3>
+
+
+                    <p
+                        class="text-sm
+                               text-gray-500
+                               mt-3
+                               leading-6"
+                    >
+                        ดูแลสุขภาพสตรีและการตั้งครรภ์
+                    </p>
+
+
+                    <div
+                        class="mt-5
+                               text-[#3ca085]
+                               font-bold
+                               text-sm"
+                    >
+                        ดูข้อมูลแผนก
+                        <i
+                            class="fa-solid
+                                   fa-arrow-right
+                                   ml-1"
+                        ></i>
+                    </div>
+
+                </div>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DEPARTMENT DETAIL
+====================================================== -->
+
+<section
+    id="departmentDetail"
+    class="hidden
+           py-16
+           bg-[#f5fbfa]"
+>
+
+    <div
+        class="max-w-7xl
+               mx-auto
+               px-5"
+    >
+
+
+        <!-- BACK -->
+
+        <button
+            onclick="showAllDepartments()"
+            class="mb-6
+                   text-[#3ca085]
+                   font-bold
+                   text-sm"
+        >
+
+            <i
+                class="fa-solid
+                       fa-arrow-left
+                       mr-2"
+            ></i>
+
+            กลับไปดูแผนกทั้งหมด
+
+        </button>
+
+
+
+        <!-- DEPARTMENT INFORMATION -->
+
+        <div
+            class="bg-white
+                   rounded-3xl
+                   border
+                   border-[#dcece9]
+                   p-7
+                   md:p-10"
+        >
+
+            <div
+                class="flex
+                       flex-col
+                       md:flex-row
+                       gap-7
+                       items-start"
+            >
+
+
+                <!-- ICON -->
+
+                <div
+                    id="detailIcon"
+                    class="w-24
+                           h-24
+                           rounded-2xl
+                           bg-[#e8f7f3]
+                           text-[#3ca085]
+                           flex
+                           items-center
+                           justify-center
+                           text-4xl
+                           flex-shrink-0"
+                >
+
+                    <i
+                        class="fa-solid
+                               fa-user-doctor"
+                    ></i>
+
+                </div>
+
+
+
+                <div class="flex-1">
+
+
+                    <p
+                        id="detailEnglish"
+                        class="text-[#3ca085]
+                               font-bold
+                               text-sm"
+                    >
+                        MEDICINE
+                    </p>
+
+
+                    <h2
+                        id="detailName"
+                        class="text-3xl
+                               md:text-4xl
+                               font-extrabold
+                               text-[#174d5a]
+                               mt-2"
+                    >
+                        อายุรกรรม
+                    </h2>
+
+
+                    <p
+                        id="detailDescription"
+                        class="text-gray-600
+                               leading-8
+                               mt-4"
+                    >
+                    </p>
+
+
+                    <div
+                        class="flex
+                               flex-wrap
+                               gap-5
+                               mt-5
+                               text-sm"
+                    >
+
+                        <div>
+
+                            <i
+                                class="fa-regular
+                                       fa-clock
+                                       text-[#3ca085]
+                                       mr-2"
+                            ></i>
+
+                            <span id="detailTime">
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <i
+                                class="fa-solid
+                                       fa-location-dot
+                                       text-[#3ca085]
+                                       mr-2"
+                            ></i>
+
+                            อาคารผู้ป่วยนอก
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SERVICES -->
+
+            <div class="mt-10">
+
+                <h3
+                    class="text-xl
+                           font-extrabold
+                           text-[#174d5a]"
+                >
+                    บริการของแผนก
+                </h3>
+
+
+                <div
+                    id="detailServices"
+                    class="grid
+                           sm:grid-cols-2
+                           lg:grid-cols-3
+                           gap-3
+                           mt-5"
+                >
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DOCTORS
+        ================================================== -->
+
+        <div class="mt-12">
+
+            <div class="mb-7">
+
+                <p
+                    class="text-[#3ca085]
+                           font-bold
+                           text-sm"
+                >
+                    OUR DOCTORS
+                </p>
+
+
+                <h2
+                    class="text-3xl
+                           font-extrabold
+                           text-[#174d5a]
+                           mt-2"
+                >
+                    แพทย์ประจำแผนก
+                </h2>
+
+            </div>
+
+
+
+            <div
+                id="doctorGrid"
+                class="grid
+                       sm:grid-cols-2
+                       lg:grid-cols-3
+                       gap-6"
+            >
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SCHEDULE
+        ================================================== -->
+
+        <div class="mt-12">
+
+
+            <div class="mb-7">
+
+                <p
+                    class="text-[#3ca085]
+                           font-bold
+                           text-sm"
+                >
+                    DOCTOR SCHEDULE
+                </p>
+
+
+                <h2
+                    class="text-3xl
+                           font-extrabold
+                           text-[#174d5a]
+                           mt-2"
+                >
+                    ตารางเข้าตรวจ
+                </h2>
+
+
+                <p
+                    class="text-sm
+                           text-gray-500
+                           mt-2"
+                >
+                    ตารางสำหรับแสดงข้อมูลเวลาที่แพทย์เข้าตรวจ
+                </p>
+
+            </div>
+
+
+
+            <div
+                class="bg-white
+                       rounded-2xl
+                       border
+                       border-[#dcece9]
+                       overflow-hidden"
+            >
+
+                <div class="overflow-x-auto">
+
+                    <table
+                        class="w-full
+                               min-w-[650px]"
+                    >
+
+                        <thead
+                            class="bg-[#eaf8f5]
+                                   text-[#234d5b]"
+                        >
+
+                            <tr>
+
+                                <th
+                                    class="text-left
+                                           px-6
+                                           py-4
+                                           text-sm
+                                           font-bold"
+                                >
+                                    วัน
+                                </th>
+
+
+                                <th
+                                    class="text-left
+                                           px-6
+                                           py-4
+                                           text-sm
+                                           font-bold"
+                                >
+                                    เวลา
+                                </th>
+
+
+                                <th
+                                    class="text-left
+                                           px-6
+                                           py-4
+                                           text-sm
+                                           font-bold"
+                                >
+                                    แพทย์
+                                </th>
+
+
+                                <th
+                                    class="text-left
+                                           px-6
+                                           py-4
+                                           text-sm
+                                           font-bold"
+                                >
+                                    ความเชี่ยวชาญ
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody
+                            id="scheduleTable"
+                            class="divide-y
+                                   divide-[#edf4f2]"
+                        >
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer
+    class="bg-[#174d5a]
+           text-white"
+>
+
+    <div
+        class="max-w-7xl
+               mx-auto
+               px-5
+               py-12"
+    >
+
+        <div
+            class="grid
+                   md:grid-cols-3
+                   gap-10"
+        >
+
+
+            <div>
+
+                <div
+                    class="text-xl
+                           font-extrabold"
+                >
+                    วอดวายเวชกรรม
+                </div>
+
+
+                <p
+                    class="text-white/70
+                           text-sm
+                           mt-3
+                           leading-6"
+                >
+                    ระบบบริการข้อมูล
+                    และบริการออนไลน์
+                    สำหรับผู้รับบริการ
+                </p>
+
+            </div>
+
+
+
+            <div>
+
+                <h3
+                    class="font-bold
+                           mb-4"
+                >
+                    เมนู
+                </h3>
+
+
+                <div
+                    class="space-y-2
+                           text-sm
+                           text-white/70"
+                >
+
+                    <a
+                        href="index.html"
+                        class="block
+                               hover:text-white"
+                    >
+                        หน้าแรก
+                    </a>
+
+
+                    <a
+                        href="hospital.html"
+                        class="block
+                               hover:text-white"
+                    >
+                        โรงพยาบาล
+                    </a>
+
+
+                    <a
+                        href="departments.html"
+                        class="block
+                               hover:text-white"
+                    >
+                        แผนก
+                    </a>
+
+
+                    <a
+                        href="doctors.html"
+                        class="block
+                               hover:text-white"
+                    >
+                        แพทย์
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div>
+
+                <h3
+                    class="font-bold
+                           mb-4"
+                >
+                    บริการ
+                </h3>
+
+
+                <div
+                    class="space-y-2
+                           text-sm
+                           text-white/70"
+                >
+
+                    <a
+                        href="appointments.html"
+                        class="block
+                               hover:text-white"
+                    >
+                        นัดหมาย
+                    </a>
+
+
+                    <a
+                        href="profile.html"
+                        class="block
+                               hover:text-white"
+                    >
+                        โปรไฟล์
+                    </a>
+
+
+                    <a
+                        href="register.html"
+                        class="block
+                               hover:text-white"
+                    >
+                        สมัครสมาชิก
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="border-t
+                   border-white/15
+                   mt-10
+                   pt-6
+                   text-xs
+                   text-white/50"
+        >
+            © 2026 วอดวายเวชกรรม
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+/* =====================================================
+   DEPARTMENT DATA
+===================================================== */
+
+const departments = {
+
+
+    medicine: {
+
+        name: "อายุรกรรม",
+
+        english: "MEDICINE",
+
+        icon: "fa-user-doctor",
+
+        description:
+            "ให้บริการตรวจ วินิจฉัย และรักษาโรคทั่วไป รวมถึงให้คำปรึกษาและติดตามอาการของผู้รับบริการ",
+
+        time:
+            "จันทร์ - ศุกร์ 08:00 - 16:00 น.",
+
+        services: [
+            "ตรวจโรคทั่วไป",
+            "ตรวจสุขภาพ",
+            "ตรวจและติดตามโรคเรื้อรัง",
+            "ให้คำปรึกษาด้านสุขภาพ",
+            "ตรวจวินิจฉัยเบื้องต้น",
+            "ติดตามผลการรักษา"
+        ],
+
+        doctors: [
+
+            {
+                name: "นพ. กิตติ ตัวอย่าง",
+                specialty: "อายุรแพทย์",
+                icon: "fa-user-doctor"
+            },
+
+            {
+                name: "พญ. สมหญิง ตัวอย่าง",
+                specialty: "อายุรแพทย์",
+                icon: "fa-user-doctor"
+            },
+
+            {
+                name: "นพ. ธนกร ตัวอย่าง",
+                specialty: "อายุรแพทย์ทั่วไป",
+                icon: "fa-user-doctor"
+            }
+
+        ],
+
+        schedule: [
+
+            {
+                day: "จันทร์",
+                time: "08:00 - 12:00",
+                doctor: "นพ. กิตติ ตัวอย่าง",
+                specialty: "อายุรแพทย์"
+            },
+
+            {
+                day: "จันทร์",
+                time: "13:00 - 16:00",
+                doctor: "พญ. สมหญิง ตัวอย่าง",
+                specialty: "อายุรแพทย์"
+            },
+
+            {
+                day: "อังคาร",
+                time: "08:00 - 12:00",
+                doctor: "นพ. ธนกร ตัวอย่าง",
+                specialty: "อายุรแพทย์ทั่วไป"
+            },
+
+            {
+                day: "พุธ",
+                time: "08:00 - 12:00",
+                doctor: "นพ. กิตติ ตัวอย่าง",
+                specialty: "อายุรแพทย์"
+            },
+
+            {
+                day: "ศุกร์",
+                time: "13:00 - 16:00",
+                doctor: "พญ. สมหญิง ตัวอย่าง",
+                specialty: "อายุรแพทย์"
+            }
+
+        ]
+
+    },
+
+
+
+    pediatrics: {
+
+        name: "กุมารเวชกรรม",
+
+        english: "PEDIATRICS",
+
+        icon: "fa-child",
+
+        description:
+            "ให้บริการตรวจ วินิจฉัย และดูแลสุขภาพเด็กตั้งแต่แรกเกิดจนถึงวัยรุ่น",
+
+        time:
+            "จันทร์ - ศุกร์ 08:00 - 16:00 น.",
+
+        services: [
+            "ตรวจสุขภาพเด็ก",
+            "ตรวจโรคทั่วไปในเด็ก",
+            "ติดตามพัฒนาการ",
+            "ให้คำปรึกษาด้านโภชนาการ",
+            "ดูแลเด็กป่วย",
+            "ติดตามสุขภาพเด็ก"
+        ],
+
+        doctors: [
+
+            {
+                name: "พญ. พิมพ์ชนก ตัวอย่าง",
+                specialty: "กุมารแพทย์",
+                icon: "fa-child"
+            },
+
+            {
+                name: "นพ. ณัฐวุฒิ ตัวอย่าง",
+                specialty: "กุมารแพทย์",
+                icon: "fa-child"
+            }
+
+        ],
+
+        schedule: [
+
+            {
+                day: "จันทร์",
+                time: "08:00 - 12:00",
+                doctor: "พญ. พิมพ์ชนก ตัวอย่าง",
+                specialty: "กุมารแพทย์"
+            },
+
+            {
+                day: "อังคาร",
+                time: "13:00 - 16:00",
+                doctor: "นพ. ณัฐวุฒิ ตัวอย่าง",
+                specialty: "กุมารแพทย์"
+            },
+
+            {
+                day: "พุธ",
+                time: "08:00 - 12:00",
+                doctor: "พญ. พิมพ์ชนก ตัวอย่าง",
+                specialty: "กุมารแพทย์"
+            },
+
+            {
+                day: "ศุกร์",
+                time: "08:00 - 12:00",
+                doctor: "นพ. ณัฐวุฒิ ตัวอย่าง",
+                specialty: "กุมารแพทย์"
+            }
+
+        ]
+
+    },
+
+
+
+    surgery: {
+
+        name: "ศัลยกรรม",
+
+        english: "SURGERY",
+
+        icon: "fa-syringe",
+
+        description:
+            "ให้บริการตรวจ วินิจฉัย และรักษาโรคที่เกี่ยวข้องกับการผ่าตัดและศัลยกรรม",
+
+        time:
+            "จันทร์ - ศุกร์ 08:00 - 16:00 น.",
+
+        services: [
+            "ตรวจศัลยกรรมทั่วไป",
+            "ประเมินก่อนการผ่าตัด",
+            "ติดตามหลังการผ่าตัด",
+            "ให้คำปรึกษาด้านศัลยกรรม",
+            "ดูแลแผลผ่าตัด",
+            "ตรวจติดตามอาการ"
+        ],
+
+        doctors: [
+
+            {
+                name: "นพ. อนันต์ ตัวอย่าง",
+                specialty: "ศัลยแพทย์ทั่วไป",
+                icon: "fa-user-doctor"
+            },
+
+            {
+                name: "นพ. ภูวดล ตัวอย่าง",
+                specialty: "ศัลยแพทย์",
+                icon: "fa-user-doctor"
+            }
+
+        ],
+
+        schedule: [
+
+            {
+                day: "จันทร์",
+                time: "09:00 - 12:00",
+                doctor: "นพ. อนันต์ ตัวอย่าง",
+                specialty: "ศัลยแพทย์ทั่วไป"
+            },
+
+            {
+                day: "พุธ",
+                time: "13:00 - 16:00",
+                doctor: "นพ. ภูวดล ตัวอย่าง",
+                specialty: "ศัลยแพทย์"
+            },
+
+            {
+                day: "พฤหัสบดี",
+                time: "09:00 - 12:00",
+                doctor: "นพ. อนันต์ ตัวอย่าง",
+                specialty: "ศัลยแพทย์ทั่วไป"
+            }
+
+        ]
+
+    },
+
+
+
+    dental: {
+
+        name: "ทันตกรรม",
+
+        english: "DENTAL",
+
+        icon: "fa-tooth",
+
+        description:
+            "ให้บริการตรวจ วินิจฉัย และรักษาสุขภาพช่องปากและฟัน พร้อมให้คำแนะนำในการดูแลสุขภาพช่องปาก",
+
+        time:
+            "จันทร์ - เสาร์ 09:00 - 17:00 น.",
+
+        services: [
+            "ตรวจสุขภาพช่องปาก",
+            "อุดฟัน",
+            "ถอนฟัน",
+            "ขูดหินปูน",
+            "ตรวจฟันผุ",
+            "ให้คำปรึกษาด้านสุขภาพช่องปาก"
+        ],
+
+        doctors: [
+
+            {
+                name: "ทพ. กรวิชญ์ ตัวอย่าง",
+                specialty: "ทันตแพทย์",
+                icon: "fa-tooth"
+            },
+
+            {
+                name: "ทพญ. ชนากานต์ ตัวอย่าง",
+                specialty: "ทันตแพทย์",
+                icon: "fa-tooth"
+            }
+
+        ],
+
+        schedule: [
+
+            {
+                day: "จันทร์",
+                time: "09:00 - 12:00",
+                doctor: "ทพ. กรวิชญ์ ตัวอย่าง",
+                specialty: "ทันตแพทย์"
+            },
+
+            {
+                day: "อังคาร",
+                time: "13:00 - 17:00",
+                doctor: "ทพญ. ชนากานต์ ตัวอย่าง",
+                specialty: "ทันตแพทย์"
+            },
+
+            {
+                day: "พฤหัสบดี",
+                time: "09:00 - 12:00",
+                doctor: "ทพ. กรวิชญ์ ตัวอย่าง",
+                specialty: "ทันตแพทย์"
+            },
+
+            {
+                day: "เสาร์",
+                time: "09:00 - 15:00",
+                doctor: "ทพญ. ชนากานต์ ตัวอย่าง",
+                specialty: "ทันตแพทย์"
+            }
+
+        ]
+
+    },
+
+
+
+    ortho: {
+
+        name: "กระดูกและข้อ",
+
+        english: "ORTHOPEDICS",
+
+        icon: "fa-bone",
+
+        description:
+            "ให้บริการตรวจ วินิจฉัย และรักษาปัญหาเกี่ยวกับกระดูก กล้ามเนื้อ ข้อต่อ และการเคลื่อนไหว",
+
+        time:
+            "จันทร์ - ศุกร์ 08:00 - 16:00 น.",
+
+        services: [
+            "ตรวจโรคกระดูกและข้อ",
+            "รักษาอาการปวดข้อ",
+            "ตรวจอาการปวดหลัง",
+            "ดูแลผู้ป่วยอุบัติเหตุ",
+            "กายภาพเบื้องต้น",
+            "ติดตามหลังการรักษา"
+        ],
+
+        doctors: [
+
+            {
+                name: "นพ. วรพล ตัวอย่าง",
+                specialty: "ศัลยแพทย์กระดูกและข้อ",
+                icon: "fa-bone"
+            },
+
+            {
+                name: "นพ. ศุภชัย ตัวอย่าง",
+                specialty: "ออร์โธปิดิกส์",
+                icon: "fa-bone"
+            }
+
+        ],
+
+        schedule: [
+
+            {
+                day: "จันทร์",
+                time: "08:00 - 12:00",
+                doctor: "นพ. วรพล ตัวอย่าง",
+                specialty: "ศัลยแพทย์กระดูกและข้อ"
+            },
+
+            {
+                day: "อังคาร",
+                time: "13:00 - 16:00",
+                doctor: "นพ. ศุภชัย ตัวอย่าง",
+                specialty: "ออร์โธปิดิกส์"
+            },
+
+            {
+                day: "พฤหัสบดี",
+                time: "08:00 - 12:00",
+                doctor: "นพ. วรพล ตัวอย่าง",
+                specialty: "ศัลยแพทย์กระดูกและข้อ"
+            }
+
+        ]
+
+    },
+
+
+
+    obgyn: {
+
+        name: "สูตินรีเวช",
+
+        english: "OBSTETRICS & GYNECOLOGY",
+
+        icon: "fa-person-pregnant",
+
+        description:
+            "ให้บริการดูแลสุขภาพสตรี การตรวจสุขภาพสตรี การตั้งครรภ์ และการดูแลด้านสูตินรีเวช",
+
+        time:
+            "จันทร์ - ศุกร์ 08:00 - 16:00 น.",
+
+        services: [
+            "ตรวจสุขภาพสตรี",
+            "ฝากครรภ์",
+            "ตรวจภายใน",
+            "ให้คำปรึกษาด้านสุขภาพสตรี",
+            "ติดตามการตั้งครรภ์",
+            "ตรวจและรักษาโรคทางนรีเวช"
+        ],
+
+        doctors: [
+
+            {
+                name: "พญ. สุนิสา ตัวอย่าง",
+                specialty: "สูติ-นรีแพทย์",
+                icon: "fa-person-pregnant"
+            },
+
+            {
+                name: "พญ. นภัสสร ตัวอย่าง",
+                specialty: "สูติ-นรีแพทย์",
+                icon: "fa-person-pregnant"
+            }
+
+        ],
+
+        schedule: [
+
+            {
+                day: "จันทร์",
+                time: "08:00 - 12:00",
+                doctor: "พญ. สุนิสา ตัวอย่าง",
+                specialty: "สูติ-นรีแพทย์"
+            },
+
+            {
+                day: "พุธ",
+                time: "13:00 - 16:00",
+                doctor: "พญ. นภัสสร ตัวอย่าง",
+                specialty: "สูติ-นรีแพทย์"
+            },
+
+            {
+                day: "ศุกร์",
+                time: "08:00 - 12:00",
+                doctor: "พญ. สุนิสา ตัวอย่าง",
+                specialty: "สูติ-นรีแพทย์"
+            }
+
+        ]
+
+    }
+
+};
+
+
+
+/* =====================================================
+   SHOW DEPARTMENT
+===================================================== */
+
+function showDepartment(id) {
+
+    const department = departments[id];
+
+    if (!department) {
+        return;
+    }
+
+
+    document
+        .getElementById("allDepartments")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("departmentDetail")
+        .classList.remove("hidden");
+
+
+    updateActiveButton(id);
+
+
+    document
+        .getElementById("detailName")
+        .textContent = department.name;
+
+
+    document
+        .getElementById("detailEnglish")
+        .textContent = department.english;
+
+
+    document
+        .getElementById("detailDescription")
+        .textContent = department.description;
+
+
+    document
+        .getElementById("detailTime")
+        .textContent = department.time;
+
+
+    document
+        .getElementById("detailIcon")
+        .innerHTML =
+        `<i class="fa-solid ${department.icon}"></i>`;
+
+
+
+    /* =================================================
+       SERVICES
+    ================================================= */
+
+    const services =
+        document.getElementById("detailServices");
+
+    services.innerHTML = "";
+
+
+    department.services.forEach(service => {
+
+        services.innerHTML += `
+
+            <div
+                class="flex
+                       items-center
+                       gap-3
+                       bg-[#f5fbfa]
+                       rounded-xl
+                       px-4
+                       py-3"
+            >
+
+                <div
+                    class="w-8
+                           h-8
+                           rounded-full
+                           bg-[#dff3ed]
+                           text-[#3ca085]
+                           flex
+                           items-center
+                           justify-center
+                           flex-shrink-0"
+                >
+
+                    <i
+                        class="fa-solid
+                               fa-check"
+                    ></i>
+
+                </div>
+
+
+                <span class="text-sm">
+                    ${service}
+                </span>
+
+            </div>
+
+        `;
+
+    });
+
+
+
+    /* =================================================
+       DOCTORS
+    ================================================= */
+
+    const doctorGrid =
+        document.getElementById("doctorGrid");
+
+    doctorGrid.innerHTML = "";
+
+
+    department.doctors.forEach(doctor => {
+
+        doctorGrid.innerHTML += `
+
+            <div
+                class="doctor-card
+                       bg-white
+                       rounded-2xl
+                       border
+                       border-[#dcece9]
+                       overflow-hidden"
+            >
+
+                <div
+                    class="h-40
+                           bg-[#eaf8f5]
+                           flex
+                           items-center
+                           justify-center"
+                >
+
+                    <div
+                        class="w-24
+                               h-24
+                               rounded-full
+                               bg-white
+                               text-[#55ad97]
+                               flex
+                               items-center
+                               justify-center
+                               text-5xl"
+                    >
+
+                        <i
+                            class="fa-solid
+                                   ${doctor.icon}"
+                        ></i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="p-5">
+
+                    <h3
+                        class="font-extrabold
+                               text-lg
+                               text-[#234d5b]"
+                    >
+                        ${doctor.name}
+                    </h3>
+
+
+                    <p
+                        class="text-sm
+                               text-[#3ca085]
+                               mt-1"
+                    >
+                        ${doctor.specialty}
+                    </p>
+
+
+                    <p
+                        class="text-sm
+                               text-gray-500
+                               mt-3"
+                    >
+                        แพทย์ประจำ${department.name}
+                    </p>
+
+
+                    <!-- VIEW ONLY -->
+
+                    <div
+                        class="mt-5
+                               px-4
+                               py-3
+                               rounded-xl
+                               bg-[#f1faf8]
+                               text-[#3b987f]
+                               text-center
+                               text-sm
+                               font-bold"
+                    >
+
+                        <i
+                            class="fa-regular
+                                   fa-calendar-days
+                                   mr-2"
+                        ></i>
+
+                        ดูตารางตรวจด้านล่าง
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+
+    /* =================================================
+       SCHEDULE
+    ================================================= */
+
+    const scheduleTable =
+        document.getElementById("scheduleTable");
+
+    scheduleTable.innerHTML = "";
+
+
+    department.schedule.forEach(item => {
+
+        scheduleTable.innerHTML += `
+
+            <tr class="schedule-row">
+
+                <td
+                    class="px-6
+                           py-4
+                           text-sm
+                           font-bold
+                           whitespace-nowrap"
+                >
+                    ${item.day}
+                </td>
+
+
+                <td
+                    class="px-6
+                           py-4
+                           text-sm
+                           whitespace-nowrap"
+                >
+
+                    <i
+                        class="fa-regular
+                               fa-clock
+                               text-[#3ca085]
+                               mr-2"
+                    ></i>
+
+                    ${item.time}
+
+                </td>
+
+
+                <td
+                    class="px-6
+                           py-4
+                           text-sm
+                           font-bold
+                           whitespace-nowrap"
+                >
+                    ${item.doctor}
+                </td>
+
+
+                <td
+                    class="px-6
+                           py-4
+                           text-sm
+                           text-gray-500
+                           whitespace-nowrap"
+                >
+                    ${item.specialty}
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+
+    document
+        .getElementById("departmentDetail")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+}
+
+
+
+/* =====================================================
+   SHOW ALL DEPARTMENTS
+===================================================== */
+
+function showAllDepartments() {
+
+    document
+        .getElementById("departmentDetail")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("allDepartments")
+        .classList.remove("hidden");
+
+
+    updateActiveButton("all");
+
+
+    document
+        .getElementById("allDepartments")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+}
+
+
+
+/* =====================================================
+   ACTIVE FILTER BUTTON
+===================================================== */
+
+function updateActiveButton(activeId) {
+
+    const buttons =
+        document.querySelectorAll(".filter-btn");
+
+
+    buttons.forEach(button => {
+
+        button.classList.remove(
+            "bg-[#3ca085]",
+            "text-white"
+        );
+
+
+        button.classList.add(
+            "bg-[#eef8f5]",
+            "text-[#3b987f]"
+        );
+
+    });
+
+
+    const activeButton =
+        document.getElementById(
+            "btn-" + activeId
+        );
+
+
+    if (activeButton) {
+
+        activeButton.classList.remove(
+            "bg-[#eef8f5]",
+            "text-[#3b987f]"
+        );
+
+
+        activeButton.classList.add(
+            "bg-[#3ca085]",
+            "text-white"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SEARCH DOCTOR
+===================================================== */
+
+function searchDoctor() {
+
+    const input =
+        document.getElementById("doctorSearch");
+
+
+    const keyword =
+        input.value
+            .trim()
+            .toLowerCase();
+
+
+    const resultBox =
+        document.getElementById(
+            "doctorSearchResult"
+        );
+
+
+    /* ถ้าไม่มีข้อความค้นหา */
+
+    if (keyword === "") {
+
+        resultBox.classList.add("hidden");
+
+        resultBox.innerHTML = "";
+
+        return;
+
+    }
+
+
+    let results = [];
+
+
+    /* ค้นหาจากทุกแผนก */
+
+    Object.keys(departments).forEach(id => {
+
+        const department =
+            departments[id];
+
+
+        department.doctors.forEach(doctor => {
+
+            const doctorName =
+                doctor.name.toLowerCase();
+
+
+            const specialty =
+                doctor.specialty.toLowerCase();
+
+
+            if (
+                doctorName.includes(keyword) ||
+                specialty.includes(keyword)
+            ) {
+
+                results.push({
+
+                    departmentId: id,
+
+                    departmentName:
+                        department.name,
+
+                    doctor: doctor
+
+                });
+
+            }
+
+        });
+
+    });
+
+
+    resultBox.classList.remove("hidden");
+
+
+    /* =================================================
+       NO RESULT
+    ================================================= */
+
+    if (results.length === 0) {
+
+        resultBox.innerHTML = `
+
+            <div
+                class="bg-white
+                       border
+                       border-[#dcece9]
+                       rounded-2xl
+                       p-6
+                       text-center"
+            >
+
+                <i
+                    class="fa-solid
+                           fa-user-doctor
+                           text-3xl
+                           text-gray-300"
+                ></i>
+
+
+                <p
+                    class="font-bold
+                           text-[#234d5b]
+                           mt-3"
+                >
+                    ไม่พบแพทย์
+                </p>
+
+
+                <p
+                    class="text-sm
+                           text-gray-500
+                           mt-1"
+                >
+                    ลองค้นหาด้วยชื่อแพทย์
+                    หรือความเชี่ยวชาญ
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    /* =================================================
+       SHOW RESULT
+    ================================================= */
+
+    resultBox.innerHTML = `
+
+        <div
+            class="bg-white
+                   border
+                   border-[#dcece9]
+                   rounded-2xl
+                   overflow-hidden
+                   shadow-sm"
+        >
+
+            <div
+                class="px-5
+                       py-4
+                       bg-[#eaf8f5]
+                       font-bold
+                       text-[#174d5a]"
+            >
+
+                พบแพทย์ ${results.length} คน
+
+            </div>
+
+
+            <div
+                class="divide-y
+                       divide-[#edf4f2]"
+            >
+
+                ${results.map(result => `
+
+                    <div
+                        class="p-5
+                               flex
+                               flex-col
+                               sm:flex-row
+                               sm:items-center
+                               justify-between
+                               gap-4"
+                    >
+
+
+                        <div
+                            class="flex
+                                   items-center
+                                   gap-4"
+                        >
+
+                            <div
+                                class="w-14
+                                       h-14
+                                       rounded-full
+                                       bg-[#eaf8f5]
+                                       text-[#3ca085]
+                                       flex
+                                       items-center
+                                       justify-center
+                                       text-2xl"
+                            >
+
+                                <i
+                                    class="fa-solid
+                                           ${result.doctor.icon}"
+                                ></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h3
+                                    class="font-extrabold
+                                           text-[#234d5b]"
+                                >
+                                    ${result.doctor.name}
+                                </h3>
+
+
+                                <p
+                                    class="text-sm
+                                           text-[#3ca085]"
+                                >
+                                    ${result.doctor.specialty}
+                                </p>
+
+
+                                <p
+                                    class="text-xs
+                                           text-gray-500
+                                           mt-1"
+                                >
+                                    แผนก${result.departmentName}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <button
+                            onclick="openDoctorFromSearch('${result.departmentId}')"
+                            class="px-4
+                                   py-2
+                                   rounded-lg
+                                   border
+                                   border-[#67bca9]
+                                   text-[#3b987f]
+                                   text-sm
+                                   font-bold
+                                   hover:bg-[#f1faf8]"
+                        >
+
+                            ดูข้อมูลแผนก
+
+                        </button>
+
+
+                    </div>
+
+                `).join("")}
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* =====================================================
+   OPEN DEPARTMENT FROM SEARCH
+===================================================== */
+
+function openDoctorFromSearch(id) {
+
+    document
+        .getElementById("doctorSearchResult")
+        .classList.add("hidden");
+
+
+    showDepartment(id);
+
+}
+
+
+
+/* =====================================================
+   ABOUT DROPDOWN
+===================================================== */
+
+function toggleAboutMenu() {
+
+    const menu =
+        document.getElementById("aboutMenu");
+
+
+    const arrow =
+        document.getElementById("aboutArrow");
+
+
+    menu.classList.toggle("hidden");
+
+
+    arrow.classList.toggle("rotate-180");
+
+}
+
+
+
+/* =====================================================
+   CLOSE ABOUT MENU WHEN CLICK OUTSIDE
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const menu =
+            document.getElementById("aboutMenu");
+
+
+        const button =
+            document.getElementById("aboutButton");
+
+
+        if (
+            !menu.contains(event.target) &&
+            !button.contains(event.target)
+        ) {
+
+            menu.classList.add("hidden");
+
+
+            document
+                .getElementById("aboutArrow")
+                .classList.remove("rotate-180");
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
